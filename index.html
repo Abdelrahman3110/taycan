@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bondi</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/taycan.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top ">
+      <div class="container gap-3">
+    <div class="navvv d-flex justify-content-between align-items-center flex-wrap">
+
+      <a class="navbar-brand text-dark fs-p" href="#"><h2>Taycan</h2></a>
+      <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#main" aria-controls="main" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="main">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-p">
+        <li class="nav-item">
+          <a class="nav-link active p-2 p-lg-3" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2 p-lg-3" href="#p" >Performance</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2 p-lg-3" href="#h" >Highlights</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2 p-lg-3" href="#r" >Reserve</a>
+        </li>
+      </ul>
+      <div class="search ps-3 pe-3 d-none d-lg-block ">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </div>
+  </div>
+        <a class="btn rounded-pill main-btn m-auto mt-auto fs-p" href="#">Buy</a>
+  </div>
+</nav>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll(".navbar .nav-link");
+
+    navLinks.forEach(function (link) {
+      link.addEventListener("click", function () {
+        // إزالة كلاس active من كل العناصر
+        navLinks.forEach(function (el) {
+          el.classList.remove("active");
+        });
+
+        // إضافة كلاس active للعنصر الحالي
+        this.classList.add("active");
+      });
+    });
+  });
+  
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll(".navbar .nav-link");
+    const sectionsMap = new Map();
+
+    // اربط كل nav-link بالـ section الخاص به
+    navLinks.forEach(link => {
+      const sectionId = link.getAttribute("href");
+      if (sectionId.startsWith("#")) {
+        const section = document.querySelector(sectionId);
+        if (section) {
+          sectionsMap.set(section, link);
+        }
+      }
+
+      // تغيير active عند الضغط يدويًا
+      link.addEventListener("click", function () {
+        navLinks.forEach(el => el.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-50% 0px -50% 0px", // يعتبر السكشن ظاهر لما يكون في منتصف الشاشة تقريبًا
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const link = sectionsMap.get(entry.target);
+          if (link) {
+            navLinks.forEach(el => el.classList.remove("active"));
+            link.classList.add("active");
+          }
+        }
+      });
+    }, observerOptions);
+
+    // راقب كل سكشن
+    sectionsMap.forEach((_, section) => observer.observe(section));
+  });
+  
+</script>
+
+<div class="landing  d-flex justify-content-center align-items-center flex-wrap ">
+  <div class="land col-12 ">
+    <div class="text-center text-light col-12">
+      <h1 class="text-light-50 fs-md-3 fs-70 mt-3 mb-3 fs-p fs-sm-20">Driven By Dreams</h1>
+      <a class="btn rounded-pill main-btn mt-3 fs-p" href="#">Explore</a>
+    </div>
+  </div>
+    <img src="imgs/landing.jpg" class="img-fluid position-absolute ">
+</div>
+<div class="power d-flex justify-content-center align-items-center flex-wrap  top-sm-0">
+  <h1 class="text-light-50 text-uppercase col-12 mb-lg-5 h1 w-100 container-fluid text-center -text-justify fs-md-5 fs-s-2 fs-p fs-70">The future of driving is here</h1>
+  <div class="container">
+    <div class="main-div row justify-content-between gap-5">
+      <div class="text col-lg-5 col-md-12 mt-3">
+        <h2 class="mb-5 mt-5 fs-2 ">
+          The Power At<br>
+          Your Finger Tips
+        </h2>
+        <p class="mb-5 mt-5 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur neque tempora soluta? Laboriosam quisquam, dolore provident quam sit eligendi praesentium voluptatibus, molestias consequatur voluptatum, ipsam perspiciatis doloremque necessitatibus quas? Nobis?</p>
+        <a class="btn rounded-pill fs-p main-btn mt-5 text-uppercase" href="#">tell me more</a>
+      </div>
+      <div class="photo col-lg-5 col-md-12">
+        <span class="text-end text-uppercase ">
+          <h1 class="fs-1 pt-2 ">750</h1>
+          <p class="fs-4 pl-2 fs-p">horse <br>power</p>
+        </span>
+        <img src="imgs/power.png" class="image-fluid w-100">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="performance d-flex justify-content-center align-items-center flex-wrap" id="p">
+  <div class="photo col-lg-6 col-md-12 col-sm-12">
+    <img src="imgs/performance.webp" class="image-fluid w-100 col-lg-6 col-md-12 col-sm-12 ">
+  </div>
+  <div class="text col-lg-6 col-md-12 col-sm-12 d-flex flex-column justify-content-center align-items-start">
+    <div class="title d-flex justify-content-center align-items-center w-100 ">
+        <h1 class="fs-p fs-50 fs-md-50 fs-sm-20">Performance And <br>Specifications</h1>
+    </div>
+          <div class="row w-100">
+        <div class="col-md-6">
+          <div class="box speed">
+            <div class="fs-1 fs-p">150</div>
+            <div class="fs-4 fs-p">Top Speed (km/h)</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="box range">
+            <div class="fs-1 fs-p">300</div>
+            <div class="fs-4 fs-p">Range (mi)</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="box charg">
+            <div class="fs-1 fs-p">23</div>
+            <div class="fs-4 fs-p">Charging Time (min)</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="box time">
+            <div class="fs-1 fs-p">3.5</div>
+            <div class="fs-4 fs-p">0-60 mph (sec)</div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="sell pt-5">
+  <div class="container pt-5">
+    <div class="cards d-flex justify-content-center align-items-center flex-wrap pt-5 pb-2 gap-5">
+      <div class="card pl-3" style="width: 18rem;">
+  <img src="imgs/car-1.webp" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h2 class="card-title">Sport Tursimo</h2>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">Top Speed: 330 KM/H</h5>
+    <p class="card-text">This is the car's maximum speed on the road.</p>
+    <h5 class="card-title">Fuel Type: Petrol</h5>
+    <p class="card-text">Uses high-performance gasoline for powerful driving.</p>
+    <h5 class="card-title">Horsepower: 641 hp</h5>
+    <p class="card-text">Engine power — more horsepower means stronger and faster performance.</p>
+    <a class="btn rounded-pill main-btn mt-5 text-uppercase fs-p" href="#">tell me more</a>
+  </div>
+</div>
+<div class="card pl-3" style="width: 18rem;">
+  <img src="imgs/car-2.webp" class="card-img-top" alt="...">
+  <div class="card-body ">
+    <h2 class="card-title">Sport Tursimo</h2>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">Top Speed: 330 KM/H</h5>
+    <p class="card-text">This is the car's maximum speed on the road.</p>
+    <h5 class="card-title">Fuel Type: Petrol</h5>
+    <p class="card-text">Uses high-performance gasoline for powerful driving.</p>
+    <h5 class="card-title">Horsepower: 641 hp</h5>
+    <p class="card-text">Engine power — more horsepower means stronger and faster performance.</p>
+    <a class="btn rounded-pill main-btn mt-5 text-uppercase fs-p" href="#">tell me more</a>
+  </div>
+</div>
+<div class="card pl-3" style="width: 18rem;">
+  <img src="imgs/car-3.webp" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h2 class="card-title">Sport Tursimo</h2>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">Top Speed: 330 KM/H</h5>
+    <p class="card-text">This is the car's maximum speed on the road.</p>
+    <h5 class="card-title">Fuel Type: Petrol</h5>
+    <p class="card-text">Uses high-performance gasoline for powerful driving.</p>
+    <h5 class="card-title">Horsepower: 641 hp</h5>
+    <p class="card-text">Engine power — more horsepower means stronger and faster performance.</p>
+    <a class="btn rounded-pill main-btn mt-5 text-uppercase fs-p" href="#">tell me more</a>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+<div class="red">
+  <div class="container d-flex justify-content-center align-items-center flex-wrap ">
+<div class="align-self-start col-12 fs-50 fs-md-50 fs-sm-20 text-dark text-center pt-5 text-bold top fs-p">Porsche e-performance</div>
+<div class="align-self-end col-12 fs-lg-1 fs-sm-4 text-light text-center ">
+“Performance That Speaks Louder Than Fashion”<br>
+More than just a car — it’s a commitment to timeless engineering over temporary trends.</div>
+  </div>
+</div>
+<div class="highlights" id="h">
+  <div class="container d-flex justify-content-center align-items-center flex-wrap gap-2 ">
+    <div class="co-h col-lg-5 col-md-12 col-sm-12 flex-column gap-3 d-flex">
+      <h1 class="c-d">Taycan Sport<br>Turismo Highlights. </h1>
+      <div class="box">
+        <img src="imgs/highlight-1.jpg" class="image-fluid w-100 ">
+        <div class="text">
+          <h1>Highlight</h1>
+          <p>Lorem ipsum dolor sit amet Laboriosam, reprehenderit tempore veniam consequuntur culpa eos fugiat tenetur distinctio facilis labore recusandae!</p>
+        </div>
+      </div>
+      <div class="box">
+      <img src="imgs/highlight-2.webp" class="image-fluid w-100">
+        <div class="text">
+          <h1>Highlight</h1>
+          <p>Lorem ipsum dolor sit amet Laboriosam, reprehenderit tempore veniam consequuntur culpa eos fugiat tenetur distinctio facilis labore recusandae!</p>
+        </div>
+      </div>
+    </div>
+    <div class="co-h col-lg-5 col-md-12 col-sm-12 flex-column gap-3 d-flex">
+      <div class="box">
+        <img src="imgs/highlight-3.jpg" class="image-fluid w-100">
+        <div class="text">
+          <h1>Highlight</h1>
+          <p>Lorem ipsum dolor sit amet Laboriosam, reprehenderit tempore veniam consequuntur culpa eos fugiat tenetur distinctio facilis labore recusandae!</p>
+        </div>
+      </div>
+      <div class="box">
+      <img src="imgs/highlight-4.jpg" class="image-fluid w-100">
+        <div class="text">
+          <h1>Highlight</h1>
+          <p>Lorem ipsum dolor sit amet Laboriosam, reprehenderit tempore veniam consequuntur culpa eos fugiat tenetur distinctio facilis labore recusandae!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="end d-flex">
+  <div class="container d-flex justify-content-center align-items-center flex-wrap gap-3 pt-2 pb-2">
+    <div class="row ro justify-content-center align-items-center d-flex mb-5 mb-5 gap-4">
+
+    <div class="photo col-lg-5 col-md-12 col-sm-12 justify-content-center align-items-center d-flex mt-5 pt-5">
+      <img src="imgs/hv.webp" class="image-fluid w-100">
+    </div>
+    <div class="text col-lg-5 col-md-12 col-sm-12 justify-content-center align-items-start d-flex flex-column text-light pt-5 mt-5 gap-2">
+      <h3 class="fs-p">Porsche HV battery<br>Guarantee</h3>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur blanditiis nam laborum tempora aliquam numquam, dignissimos iste inventore labore consectetur libero. Quas quae rem ducimus labore asperiores. Culpa, maxime architecto?</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ipsam sunt, sed cumque ratione eum perferendis suscipit laborum eaque officia iste veritatis dolores consequuntur magnam earum unde ea nostrum qui.</p>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="foot " id="r">
+  <div class="container d-flex justify-content-center align-items-center flex-wrap">
+    <div class="row justify-content-center align-items-center d-flex flex-wrap mt-5 mp-5 mb-5 mb-5 gap-4">
+      <div class="text col-lg-5 col-md-12 col-sm-12 justify-content-center align-items-start d-flex flex-column text-light pt-5 mt-5 gap-2 text-dark">
+        <h1 class="fs-p">Reserve Your <br>Taycan Today</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi doloribus consequuntur eos, accusantium beatae harum officia id libero nostrum quas quisquam ut cum numquam natus tempora! Magnam omnis eligendi optio.</p>
+        <img src="imgs/porsche-logo.avif" alt="" class="image-fluid w-100">
+      </div>
+      <div class="in col-lg-5 col-md-12 col-sm-12 justify-content-center align-items-start d-flex flex-column text-light pt-5 mt-5 gap-2 ">
+        <div class="card col-lg-6 col-md-12 col-sm-12 justify-content-center d-flex flex-column align-items-center">
+      <div class="card-body text-dark">
+         <h5 class="card-title fs-p text-upper-case pt-3 pb-3 mb-5">Fill out form below to <br> reserve</h5>
+        <input type="text" placeholder="Your name" class="w-100">
+        <input type="email" placeholder="Email" class="w-100">
+        <input type="text" placeholder="country" class="w-100">
+    <a class="btn rounded-pill main-btn mb-2 text-uppercasept-5 fs-p justify-content-center align-items-center w-100" href="#">Reserve</a>
+         <p class="card-text text-black-50">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/all.min.js"></script>
+</body>
+</html>

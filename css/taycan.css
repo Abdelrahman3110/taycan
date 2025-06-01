@@ -1,0 +1,388 @@
+:root{
+    --dark:#1c3d44;
+    --green:#33d1cc;
+    --red:#ff3150;
+    --yellow:#ffc400;
+    --sec:#eff7fa;
+    --gray:#afb5b8a1;
+}
+
+.fs-80{
+    @media (min-width:1192px) {
+        font-size: 80px;
+    }
+}
+.fs-70{
+    @media (min-width:1192px) {
+        font-size: 70px;
+    }
+}
+.fs-50{
+    @media (min-width:1192px) {
+        font-size: 50px;
+    }
+}
+.fs-md-50{
+    @media (max-width:1192px) {
+        font-size: 50px;
+    }
+}
+.fs-sm-20{
+    @media (max-width:767px) {
+        font-size: 30px;
+    }
+}
+.c-d{
+    color: var(--dark);
+}
+@font-face {
+    font-family: "911porschav3 ";
+  src: url(../webfonts/911porschav3.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+.fs-p{
+      font-family: "911porschav3 ", sans-serif;
+}
+body{
+  font-family: "Montserrat", sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+.main-btn{
+    background-color:var(--dark);
+    color: white;  
+    padding: 0.5rem 1rem;
+
+}
+.main-btn:hover{
+    background-color: var(--gray);
+}
+.main-title::after{
+    content:"" ;
+    position: absolute;
+    width: 120px;
+    height: 2px;
+    background-color: var(--green);
+    bottom: -20px;
+    left: 50;
+    transform:translateX(-50%);
+    -webkit-transform:translateX(-50%);
+    -moz-transform:translateX(-50%);
+    -ms-transform:translateX(-50%);
+    -o-transform:translateX(-50%);
+}
+/* start navbar */
+.navbar{
+    background-color: transparent;
+    top: 10px;
+}
+.navbar .navvv{
+    width: 1140px;
+    background-color: var(--gray);
+    margin: 0 auto;
+    padding: 0 15px;
+        border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+.navbar .navbar-nav .nav-link{
+    color: white;
+}
+
+.navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .nav-link:focus,
+.navbar .navbar-nav .nav-link:hover{
+color: var(--dark);
+}
+.search{
+    border-left:  1px solid var(--dark);
+}
+.search svg{
+    color: var(--dark);
+    cursor: pointer;
+}
+.navbar .navbar-toggler{
+    color: white;
+    font-size: 25px;
+    border-color: white;
+}
+.navbar .navbar-toggler:focus{
+    box-shadow: none;
+}
+.navbar .navbar-toggler[aria-expanded="true"]{
+    border-color: var(--dark);
+}
+/* end navbar */
+/* start landing */
+.landing{
+    min-height: calc(100vh - 72px);
+    margin-bottom: 100px;
+}
+.landing img{
+    width: 100%;
+    z-index: -1;
+}
+.landing .land h1{
+    /* font-size: 70px; */
+    color: var(--sec);
+}
+/* end landing */
+/* start power */
+.power{
+    position: relative;
+    top: 25rem;
+    /* min-height: calc(100vh - 72px); */
+    min-height: 100vh;
+    padding-bottom: 100px;
+    margin-top: 100px;
+    overflow: hidden;
+}
+.power .h1{
+    position: relative;
+    margin-bottom: 25px;
+    letter-spacing: 0.3; 
+    color: var(--gray);
+    opacity: 0.3;
+}
+.power .container .main-div .text,
+.power .container .main-div .photo{
+    color: var(--dark);
+}
+@media (max-width:767px) {
+    .power .h1{
+        font-size: 40px;
+    }
+    .power{
+        top: -300px;
+        padding-bottom: 0;
+    }
+    .landing{
+        top: -170px;
+        position: relative;
+    }
+}
+/* end  power */
+
+/* start per */
+.performance{
+    top: 25rem;
+    position: relative;
+    background-color: var(--dark);
+    max-width: 100%;
+    overflow: hidden;
+    min-height: 100vh;
+    color: white;
+}
+@media (max-width:767px) {
+    .performance{
+        top: 0;
+    }
+}
+.performance .photo img{
+    height: 100vh;
+}
+.performance .text {
+    padding: 2rem;
+}
+
+.performance .text h1 {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.performance .box {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    margin: 1rem 0;
+    position: relative;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    -webkit-transition: transform 0.3s ease-in-out;
+    -moz-transition: transform 0.3s ease-in-out;
+    -ms-transition: transform 0.3s ease-in-out;
+    -o-transition: transform 0.3s ease-in-out;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border: 1px solid white;
+}
+
+.performance .box:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+
+/* end per */
+/* start sell */
+.sell{
+    top: 25rem;
+    position: relative;
+    background-color: white;
+    max-width: 100%;
+    overflow: hidden;
+    min-height: 100vh;
+}
+@media (max-width:767px) {
+    .sell{
+        top: 0;
+    }
+}
+.sell .container .cards .card{
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    margin: 1rem 0;
+    position: relative;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    -webkit-transition: transform 0.3s ease-in-out;
+    -moz-transition: transform 0.3s ease-in-out;
+    -ms-transition: transform 0.3s ease-in-out;
+    -o-transition: transform 0.3s ease-in-out;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border: 1px solid var(--dark);
+}
+
+.sell .container .cards .card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+
+/* send sell */
+/* s-red */
+.red{
+    top: 35rem;
+    position: relative;
+    background-image: url(../imgs/porsche-e.jpg);
+    background-size: cover;
+    background-position: center center;
+    max-width: 100%;
+    overflow: hidden;
+    min-height: 100vh;
+}
+/* Tablet view */
+@media (max-width: 992px) {
+    .red {
+        background-position: center top;
+    }
+}
+
+/* Mobile view */
+@media (max-width: 576px) {
+    .red {
+        background-position: center bottom;
+    }
+}
+.red .container{
+    height: 90vh;
+}
+/* e-red */
+/* s-highlight */
+.highlights{
+    top: 45rem;
+    position: relative;
+    background-color: white;
+    max-width: 100%;
+    overflow: hidden;
+    min-height: 100vh;
+}
+.highlights .container .co-h .box{
+    position: relative;
+    overflow: hidden;
+}
+.highlights .container .co-h .box .text{
+    position: absolute;
+    left: 0;
+    padding: 20px;
+    background-color:rgb(0 0 0 / 42%);
+    color: white;
+    width: 100%;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    bottom: -100%;
+
+}
+.highlights .container .co-h .box:hover .text{
+    bottom: 0; 
+}
+.highlights .container .co-h .box img{
+    transition: transform 0.3s ease-in-out;
+    -webkit-transition: transform 0.3s ease-in-out;
+    -moz-transition: transform 0.3s ease-in-out;
+    -ms-transition: transform 0.3s ease-in-out;
+    -o-transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    overflow: hidden;
+}
+.highlights .container .co-h .box:hover img{
+    transform: scale(1.05);
+    cursor: pointer;
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+/* e-highlight */
+/* s-end */
+.end{
+    top: 50rem;
+    position: relative;
+    background-color: var(--dark);
+    max-width: 100%;
+    overflow: hidden;
+    min-height: 64vh;
+}
+.end .container .ro .photo img{
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+/* e-end */
+/* s-footer */
+.foot{
+    top: 50rem;
+    position: relative;
+    background-color: white;
+    max-width: 98%;
+    min-height: 64vh;
+}
+.foot .container .row .in .card .card-body input{
+     display: block;
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 15px;
+    border: none;
+    border-bottom: 3px solid #ccc;
+    background-color: #f9f9f9;
+    caret-color: var(--main-color);
+}
+@media (min-width:1192px) {
+.foot .container .row .in .card{
+    width: 31rem;
+}
+}
+/* e-footer */
