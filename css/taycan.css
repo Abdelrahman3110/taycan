@@ -308,7 +308,7 @@ color: var(--dark);
 .highlights .container .co-h .box .text{
     position: absolute;
     left: 0;
-    padding: 14px;
+    padding: 7px;
     background-color:rgb(0 0 0 / 42%);
     color: white;
     width: 100%;
